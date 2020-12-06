@@ -15,7 +15,7 @@
 #define _DIST_MAX 410 //[0711] 측정 최댓값
 
 // Distance sensor
-#define _DIST_ALPHA 0.7 // [3095] ema필터의 alpha 값을 설정
+#define _DIST_ALPHA 0.8 // [3095] ema필터의 alpha 값을 설정
 
 // Servo range
 #define _DUTY_MIN 1000 // servo full clockwise position (+ degree)
@@ -32,7 +32,7 @@
 #define _INTERVAL_SERIAL 100 // [3078] Serial제어주기 (ms)
 
 // PID parameters
-#define _KP 0.7 //[0711] 비례이득
+#define _KP 3 //[0711] 비례이득
 #define _KD 50
 
 //////////////////////
@@ -70,7 +70,7 @@ void setup() {
   // initialize serial port
   Serial.begin(57600); // [3083] serial port의 baud rate를 57600으로 초기화
   // convert angle speed into duty change per interval.
-  duty_chg_per_interval = (_DUTY_MAX - _DUTY_MIN) * (_SERVO_SPEED / 180.0) * (_INTERVAL_SERVO / 1000.0)*2; // [3074] 서보 업데이트 1주기에 증감 가능한 duty 의 최댓값
+  duty_chg_per_interval = (_DUTY_MAX - _DUTY_MIN) * (_SERVO_SPEED / 180.0) * (_INTERVAL_SERVO / 1000.0)*6; // [3074] 서보 업데이트 1주기에 증감 가능한 duty 의 최댓값
 
   // [1615] 마지막 이벤트 발생 시간 초기화
   last_sampling_time_dist = 0;
