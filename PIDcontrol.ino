@@ -177,6 +177,8 @@ void loop() {
     Serial.print(",DTC:");
     Serial.print(map(duty_curr,1000,2000,410,510));
     Serial.println(",-G:245,+G:265,m:0,M:800");
+    
+     last_sampling_time_serial += _INTERVAL_SERIAL;
    }
 }
 
